@@ -1,0 +1,47 @@
+Der S-Bhf Friedrichstraße ist ein Kreuzungsbahnhof, der von Regionalbahn, S & U-Bahn angefahren wird.
+Im unteren Bereich befinden sich in Nord – Süd – Richtung die S & U-Bahnen, im oberen Bereich befinden sich in Ost – West – Richtung die Regionalbahn & S-Bahn.
+
+Mit dem Programm wollte ich den oberen Teil des S-Bahnhofs Friedrichstraße simulieren.
+
+Gleis 6 = S-Bahn
+Gleis 5 = S-Bahn
+
+
+Gleis 4 = Regionalbahn
+Gleis 3 = Regionalbahn
+
+Gleis 2 = Regionalbahn
+Gleis 1 = Regionalbahn
+
+Gleis 1, 3 & 5 wird von West nach Ost befahren.
+Gleis 2, 4 & 6 von Ost nach West befahren.
+
+Jeweils in Fahrtrichtung befinden sich Signalampeln.
+Fährt ein Zug ein, blinkt die Ampel Grün.
+Steht der Zug, leuchtet die Ampel Rot.
+Kurz bevor der Zug losfährt, schaltet die Ampel auf Grün.
+Wenn der Zug den Bahnhof verlassen hat, erlischt die Ampel.
+
+Regionalbahnen halten für 1 Minute, S-Bahnen halten für 30 Sekunden.
+Die Züge haben folgende (reale) Zugnummern:
+Regionalbahnen: RE1, RE2 & RE7
+S-Bahnen: S3, S5, S7, S9
+
+Regionalbahnen werden als 4 rote Rechtecke und einem roten Dreieck als Zugspitze dargestellt.
+S-Bahnen werden als 3 etwas kleinere grüne Rechtecke und einem grünen Dreieck als Zugspitze dargestellt.
+Die Zugspitzen müssen korrekt dargestellt werden (Das Dreieck MUSS in Fahrtrichtung zeigen - fährt der Zug nach Osten, muss das Dreieck am östlichen Ende sein, fährt er nach Westen, muss das Dreieck am westlichen Ende sein).
+
+Die Züge halten jeweils mittig am Gleis und nutzen die gesammte Strecke für Ein- & Ausfahrt.
+ 
+Es darf jeweils immer nur ein Zug pro Gleis vorhanden sein.
+
+Es soll eine Uhrzeit sichtbar sein, die sich an der realen Systemzeit des PCs orientiert.
+
+Sensoren ermitteln, ob ein Gleis frei oder belegt ist.
+Ankommende Züge senden Anfragen an das Stellwerk und bitten um ein freies Gleis.
+Im Stellwerk wird nun ermittelt, ob ein freies Gleis verfügbar ist.
+Falls ja, wird der Weg dorthin freigeschaltet, das Gleis reserviert und dem Zug die Gleisnummer übermittelt.
+Falls nein, wartet der Zug am Einfahrtssignal, bis er ein freies Gleis vom Stellwerk zugewiesen bekommt.
+Diese Anfragen werden für den Benutzer gut lesbar angezeigt.
+Moderne Schnittstellen und Protokolle sowie eine Kollisionserkennung für die Züge sind implementiert.
+Echtzeitanzeigen für Gleisbelegung, Kommunikation & Schnittstellen sind vorhanden sowie Links für Protokolle & Schnittstellen und ein Stellwerkslog.
