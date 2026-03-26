@@ -1,0 +1,16 @@
+Klassen
+
+
+Track-Klasse
+
+Sie repräsentiert ein einzelnes Gleis, speichert dessen Zustand, hat keine eigene Logik und wird von ‚Interlocking‘ verwaltet.
+
+Attribute:
+id			Gleisnummer (1-6)
+type			Zugtyp (RE oder S)
+direction		Fahrtrichtung (WEST_EAST / EAST_WEST)
+ocupied		Belegt / Frei
+train			Referenz auf aktuellen Zug
+
+
+Train-Klasse
