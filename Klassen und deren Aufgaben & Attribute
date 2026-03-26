@@ -3,9 +3,10 @@ Klassen
 
 Track-Klasse
 
-Sie repräsentiert ein einzelnes Gleis, speichert dessen Zustand, hat keine eigene Logik und wird von ‚Interlocking‘ verwaltet.
+Sie repräsentiert ein einzelnes Gleis, speichert dessen Zustand, hat keine eigene Logik und wird von der Klasse Interlocking gesteuert.
 
 Attribute:
+
 id			Gleisnummer (1-6)
 type			Zugtyp (RE oder S)
 direction		Fahrtrichtung (WEST_EAST / EAST_WEST)
@@ -14,3 +15,140 @@ train			Referenz auf aktuellen Zug
 
 
 Train-Klasse
+
+Sie repräsentiert einen Zug und ist ein Stateful Entity Object, das Zustand + Bewegungsdaten + GUI-Referenzen enthält.
+Sie hält alle Informationen für die Simulation & Darstellung und wird von der Klasse Simulation gesteuert.
+
+Attribute:
+
+number = Zugnummer (z.B. RE1, S3)
+type = Zugtyp
+Track = Zugewiesenes Gleis
+state = Zustand:
+	„approach“ (Einfahrt)
+	„stop“ (Halt)
+	„depart“ (Abfahrt)
+x = Position auf der Strecke
+speed = Geschwindigkeit
+graphics = Liste der grafischen Objekte (Waggons etc.)
+text_item = Textanzeige im GUI
+stop_time = geplante Haltezeit
+stop_start = Zeitpunkt des Haltebeginns
+
+
+ 
+Interlocking-Klasse
+
+Sie ist das eigentliche Stellwerk und verwaltet Gleise & Züge.Sie kommt einem Controller + einer Logikkomponente gleich.
+
+Attribute:
+
+gui = Referenz auf GUI (für Logging & Anzeige)
+tracks = Liste aller Gleise (Track-Objekte)
+
+Wichtige Methoden:
+
+request_track(train)
+Gleis anfordern (Fahrtstraße bilden)
+Prüft:
+	passender Zugtyp?
+	Gleis frei?
+Wenn möglich:
+	Gleis wird belegt
+	Zug wird zugewiesen
+Wenn nicht:
+	Zug wartet
+Entspricht in der Realität der Fahrweganfrage über Systeme wie SCI-CC / RaSTA
+
+release(train)
+Gleis freigeben
+Wird aufgerufen, wenn ein Zug das Gleis verlässt
+Setzt:
+	occupied = False
+	train = None
+Entspricht in der Realität der Gleisfreimeldung (z.B. über SCI-TDS)
+ 
+StellwerkGUI-Klasse
+
+Sie ist für die Benutzeroberfläche verantwortlich. Sie visualisiert alles und stellt eine Schnittstelle zwischen Benutzer, Simulation & Stellwerk dar.
+Hierfür ist die Installation von PyQt6 vonnöten.
+
+Hauptbestandteile:
+
+QgraphicsScene = Zeichnet Gleise & Züge
+QtableWidget = Gleisbelegung
+QtextEdit = Logs & Kommunikation
+Qtimer = Zeitsteuerung (Uhr, Blinken)
+
+Wichtige Methoden:
+
+Anzeige & UI:
+draw_tracks() = zeichnet Gleise + Signale
+set_signal() = Signalzustand setzen (rot/grün/blink)
+blink_signals() = Blinklogik
+
+Datenanzeige:
+update_table() = aktualisiert Gleisbelegung
+update_clock() = Uhrzeit
+
+Logging:
+log() = Stellwerkslog
+log_comm() = Kommunikationslog
+
+Sonstiges:
+toggle_fullscreen() = Vollbildmodus
+resizeEvent() = automatische Skalierung
+ 
+Simulation-Klasse
+
+Sie beinhaltet die Ablauflogik der gesamten Simulation. Sie ist ein Orchestrator / Game Loop Controller.
+Von ihr wird ALLES zeitlich gesteuert und sie verbindet Züge, Stellwerk & GUI.
+
+Attribute:
+
+gui = GUI-Referenz
+interlocking = Stellwerk
+trains = aktive Züge
+Timer:
+	timer = Update-Loop (30ms)
+	spawn_timer = nerue Züge
+
+Wichtige Methoden:
+
+spawn_train() = Erstellt neue Züge
+	Zufällige Zugnummer
+	Fragt Gleis beim Interlocking an
+	Startet Darstellung
+
+create_graphics() = Zeichnet Zug im GUI
+	Waggons
+	Richtungspfeil
+	Beschriftung
+
+move_train(train) = Bewegt Zug entlang der Strecke
+
+remove_train(train) = Entfernt Zug aus:
+	GUI
+	Simulation
+	Gleis (Freigabe!)
+
+update() = Herzstück der Simulation (State Machine)
+Steuert Zustandswechsel:
+approach
+	zug fährt ein
+	bei Mitte: Halt
+stop
+	wartet stop_time
+depart
+	fährt weiter
+	verlässt System
+ 
+Main-Klasse
+
+Sie ist der Startpunkt des Programms und hat folgenden Ablauf:
+
+1. QApplication starten
+2. GUI erstellen
+3. Simulation starten
+4. Gleise zeichnen
+5. Event-Loop starten
