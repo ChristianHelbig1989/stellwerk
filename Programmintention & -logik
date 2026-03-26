@@ -45,3 +45,7 @@ Falls nein, wartet der Zug am Einfahrtssignal, bis er ein freies Gleis vom Stell
 Diese Anfragen werden für den Benutzer gut lesbar angezeigt.
 Moderne Schnittstellen und Protokolle sowie eine Kollisionserkennung für die Züge sind implementiert.
 Echtzeitanzeigen für Gleisbelegung, Kommunikation & Schnittstellen sind vorhanden sowie Links für Protokolle & Schnittstellen und ein Stellwerkslog.
+
+Das Programm läuft mit einer grafischen Oberfläche, die beim Start 1920 x 1080 groß ist und skalierbar ist.
+
+Das Programm läuft so lange, bis es vom Benutzer beendeet wird.
