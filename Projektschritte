@@ -1,0 +1,22 @@
+1.	Diverse Infos zu Stellwerken, Protokollen, Schnittstellen zusammengetragen
+  a.	kurzer Exkurs in die Geschichte der Stellwerke
+  b.	heute genutzte Stellwerke angeschaut (ESTW & DSTW)
+  c.	deren genutzte Schnittstellen & Protokolle notiert
+
+2.	Code/Programm bis zur Zufriedenheit gepromtet
+  a.	ca. 20 Versionen wurden ausgegeben
+  b.	Aufteilung der Gleise nach realem Vorbild (S-Bhf Friedrichstraße) inklusivew Werichenfunktion wurde versucht, stellte sich jedoch als zu komplex heraus
+  c.	schauen, inwieweit die selbst herausgesuchten Schnittstellen & Protokolle in das vorliegende Programm integrierbar sind bzw. ob das Sinn macht
+  d.	Erklärung der integrierten Software
+    i.	Links bearbeitet/hinzugefügt
+
+3.	Projektdokumentation angefertigt
+  a.	Voraussetzungen für den Programmablauf angegeben
+  b.	Klassen, deren Ablauf, Attribute, Methoden beschrieben
+  c.	Programmintention & -logik beschrieben
+  d.	Programm mit Bildschirmfotos dokumentiert
+
+4.	UML-Diagramm erstellen
+
+5.	Optionale Erweiterung des Programmes als I-Tüpfelchen
+    (zoombare 3D Optik, …)
