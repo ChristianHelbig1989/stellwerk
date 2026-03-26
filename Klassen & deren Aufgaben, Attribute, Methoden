@@ -1,5 +1,3 @@
-Klassen
-
 Track-Klasse
 
 Sie repräsentiert ein einzelnes Gleis, speichert dessen Zustand, hat keine eigene Logik und wird von der Klasse Interlocking gesteuert.
