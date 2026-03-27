@@ -1,0 +1,37 @@
+1. Programm inkl. aller Komponenten
+
+Die Gesamtansicht des Programms.
+Die Gleise passen sich dynamisch der Fenstergröße an.
+
+
+2. Gleisübersicht
+
+Die Übersicht der Gleise.
+2 Gleise dienen der S-Bahn, 4 Gleise der Regionalbahn.
+
+
+3. Bereich für die Gleisbelegung
+
+Allgemeine Infos zur Gleisbelegung wie Zugname, Resthaltedauer, etc.
+
+
+4. Bereich für die Kommunikation & Schnittstellen
+
+Hier wird reale Stellwerkssoftware simuliert.
+u.a. Stellwerk – Signale & Stellwerk – Züge
+
+
+5. Bereich für Links zur simulierten Software
+
+Zu jeder Software stehen hier Links zu den entsprechenden Wikipedia-Artikeln bereit
+
+
+6. Bereich für das Stellwerkslog
+
+Hier wird die Kommunikation zwischen Zügen & Stellwerk aufgelistet.
+
+
+7. Taster für das Umschalten auf Vollbild. Selbsterklärend.
+
+
+8. Fenstername & aktuelle Fenstergröße. Ebenfalls selbsterklärend.
