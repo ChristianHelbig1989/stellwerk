@@ -1,2 +1,2 @@
-Please use an Python 3.14 with the PyQt6 package installed.
-I used PyCharm but it should run in any other IDE.
+Das Programm wurde mit Python 3.14 geschrieben. Zur Ausführung werden die PyQt6-Pakete benötigt.
+Ich habe PyCharm von Jetbrains genutzt aber es sollte in jeder anderen IDE laufen.
