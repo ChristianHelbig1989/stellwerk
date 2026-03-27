@@ -160,7 +160,7 @@ class StellwerkGUI(QMainWindow):
         side.addWidget(QLabel("Kommunikation & Schnittstellen"))
         side.addWidget(self.comm_view)
 
-        side.addWidget(QLabel("Protokolle & Referenzen"))
+        side.addWidget(QLabel("Weiterführende Links"))
         side.addWidget(self.protocol_info)
 
         side.addWidget(QLabel("Stellwerk Log"))
